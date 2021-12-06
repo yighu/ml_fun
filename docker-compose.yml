@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+ jupyter-lab:
+  image: jupyter/datascience-notebook:python-3.7.6
+  container_name: jupyter-lab
+  env_file:
+   - notebooks/.env
+  environment:
+   - JUPTER_ENABLE=yes
+  ports:
+   - "8888:8888"
+  volumes:
+    - ./notebooks:/jovyan
+    - ./pip:/home/jovyan/.pip
